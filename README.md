@@ -58,6 +58,10 @@ AMF, or AMD's equivalent GPU support for FFMPEG is not covered here, but you are
 7) ```ffmpeg -y -threads 2 -hwaccel cuda -hwaccel_output_format cuda -extra_hw_frames 2 -i "input.mp4" -vf "scale_cuda=2560:1440" -c:v h264_nvenc -preset p2 -rc-lookahead 0 -bf -0 -tune hq -rc vbr -cq:v 16 -b:v 0 -c:a copy output.mp4```
 - This creates a 3.67GB file at 27.8x speed. Adding the ```-rc-lookahead 0``` and ```-bf 0``` flags decreases the load of the GPU as it doesn't have to queue frames as it's concurrently rendering frames.
 
+<img width="1557" height="715" alt="Screenshot 2026-04-26 110227" src="https://github.com/user-attachments/assets/02cebf1a-e996-45ce-b59a-b753a464f74d" />
+At 100% load, it can be confirmed that a hardware limitation can be seen as speed ranges from 26.4x to 27.8x at a cq of 15-17, p2, and cuda acceleration.
+
+
 ## MacOS (Apple Silicon Version)
 
 1) ```ffmpeg -y -hwaccel videotoolbox -i "input.mp4" -vf "scale=2560:1440" -c:v h264_videotoolbox -tune hq -c:a copy output.mp4```
