@@ -35,6 +35,9 @@ There are countless codecs here too, but three have been used here as they suppo
 ## Windows (x86, CUDA) 
 
 AMF, or AMD's equivalent GPU support for FFMPEG is not covered here, but you are welcome to add to this readme. 
+<img width="2559" height="1386" alt="Screenshot 2026-04-24 164604" src="https://github.com/user-attachments/assets/bf652f4d-37ec-495c-87d6-7925c5f68e76" />
+<img width="2559" height="1394" alt="Screenshot 2026-04-24 165042" src="https://github.com/user-attachments/assets/15576ed0-7f45-438a-86ed-8785da272f56" />
+                                                         cq of 20 vs lower values.
 
 
 1) ```ffmpeg -y -threads 4 -hwaccel cuda -hwaccel_output_format cuda -i "input.mp4" -vf "scale_cuda=2560:1440" -c:v h264_nvenc -cq 20 -crf 23 -c:a copy output.mp4```
