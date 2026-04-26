@@ -56,7 +56,7 @@ AMF, or AMD's equivalent GPU support for FFMPEG is not covered here, but you are
 - This creates a 3.67GB file at 27.8x speed. The ```p3``` profile is downgraded to 2 as it causes overexposure in the output footage.
 
 7) ```ffmpeg -y -threads 2 -hwaccel cuda -hwaccel_output_format cuda -extra_hw_frames 2 -i "input.mp4" -vf "scale_cuda=2560:1440" -c:v h264_nvenc -preset p2 -rc-lookahead 0 -bf -0 -tune hq -rc vbr -cq:v 16 -b:v 0 -c:a copy output.mp4```
-- This creates a x.xxGB file at xx.xx speed. Adding the ```-rc-lookahead 0``` and ```-bf 0``` flags decreases the load of the GPU as it doesn't have to queue frames as it's concurrently rendering frames.
+- This creates a 3.67GB file at 27.8x speed. Adding the ```-rc-lookahead 0``` and ```-bf 0``` flags decreases the load of the GPU as it doesn't have to queue frames as it's concurrently rendering frames.
 
 ## MacOS (Apple Silicon Version)
 
